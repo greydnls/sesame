@@ -1,0 +1,16 @@
+{
+    "require": {
+        "php": "^5.5|^7.0",
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9"
+    },
+    "autoload": {
+        "files": [
+            "tests/Test.php"
+        ],
+        "psr-4": {
+            "Sesame\\": "src",
+            "Sesame\\Test\\": "tests"
+        }
+    }
+}
