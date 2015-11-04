@@ -2,6 +2,7 @@
 
 namespace Sesame\Authenticator;
 
+use InvalidArgumentException;
 use Sesame\Authenticator;
 
 class ArrayAuthenticator implements Authenticator
@@ -10,6 +11,12 @@ class ArrayAuthenticator implements Authenticator
 
     public function __construct(array $users)
     {
+        foreach ($users as $user) {
+            if (!is_array($user)) {
+                throw new InvalidArgumentException();
+            }
+        }
+
         $this->users = $users;
     }
 

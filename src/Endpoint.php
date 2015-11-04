@@ -2,10 +2,10 @@
 
 namespace Sesame;
 
-interface Authenticator
+interface Endpoint
 {
     /**
-     * @return bool
+     * @return string
      */
     public function authenticate(array $credentials);
 }

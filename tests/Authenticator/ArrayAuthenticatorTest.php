@@ -2,8 +2,10 @@
 
 namespace Sesame\Test\Authenticator;
 
+use InvalidArgumentException;
 use Sesame\Authenticator\ArrayAuthenticator;
 use Sesame\Test\Test;
+use StdClass;
 
 class ArrayAuthenticatorTest extends Test
 {
@@ -35,5 +37,16 @@ class ArrayAuthenticatorTest extends Test
                 "password" => "YwrNnBiLDrTbB3c4ifRY",
             ])
         );
+    }
+
+    public function testInputsValidated()
+    {
+        $user = new StdClass();
+        $user->username = "chris";
+        $user->password = "YwrNnBiLDrTbB3c4ifRY";
+
+        $this->setExpectedException(InvalidArgumentException::class);
+
+        new ArrayAuthenticator([$user]);
     }
 }
